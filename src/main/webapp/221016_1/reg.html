@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="reg.css">
+</head>
+<script>
+function check() {
+	let frm = document.frm;
+	let userId = frm.userId;
+	let userName = frm.userName;
+	let userYY = frm.userYY;
+	let userMM = frm.userMM;
+	let userDD = frm.userDD;
+	let userSex = frm.userSex;
+	let userAb = frm.userAb;
+	let userAp = frm.userAp;
+	
+	if (userId.value == ""){
+		alert("아이디를 입력하시오");
+		userId.focus();
+	}else if (userName.value == ""){
+		alert("이름을 입력하시오");
+		userName.focus();
+	}else if (userYY.value == "" || userMM.value =="" || userDD.value==""){
+		alert("생년월일을 확인하시오");
+		userYY.focus();
+	}else if (userAb.value == "Null"){
+		alert("실력무대를 선택하시오");
+		userAb.focus();
+	}else if (userAp.value == ""){
+		alert("매력무대를 입력하시오");
+		userAp.focus();
+	}else{
+		frm.submit(); 
+		alert("유효성 확인 완료");
+	}
+	
+}
+</script>
+<body>
+<form name="frm" action="regAction.jsp" method="post">
+<table>
+<tr>
+<td>참가자ID</td>
+<td><input type="text" name="userId"></td>
+</tr>
+<tr>
+<td>참가자이름</td>
+<td><input type="text" name="userName"></td>
+</tr>
+<tr>
+<td>생년월일</td>
+<td id=userYMD>
+<input type="text" name="userYY">
+<div>년</div>
+<input type="text" name="userMM">
+<div>월</div>
+<input type="text" name="userDD">
+<div>일</div>
+</td>
+</tr>
+<tr>
+<td>성별</td>
+<td>
+<input type="radio" name="userSex" value="남" checked>남
+<input type="radio" name="userSex" value="여">여
+</td>
+</tr>
+<tr>
+<td>실력무대</td>
+<td><select name="userAb">
+<option value="Null">선택</option>
+<option value="V">보컬</option>
+<option value="D">댄스</option>
+<option value="R">랩</option>
+</select></td>
+</tr>
+<tr>
+<td>매력무대</td>
+<td><input type="text" name="userAp"></td>
+</tr>
+<tr>
+<td colspan="2" id="check">
+<button onclick="check()" type="button">저장</button><button type="reset">취소</button>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
